@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmar Cover Studio — GTA-style cover art maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover editor">
+    <h1>Solmar Cover Studio</h1>
+    <p class="tagline">Your photos, turned into a Vice-City-style poster cover. All original art — no Rockstar assets.</p>
+
+    <label class="upload">Add photos <input id="photo" type="file" accept="image/*" multiple></label>
+    <div class="samples" aria-label="Sample photos">
+      <span>Try a sample:</span>
+      <button type="button" data-sample="rooftop">Rooftop</button>
+      <button type="button" data-sample="neon">Neon St</button>
+      <button type="button" data-sample="highway">Highway</button>
+      <button type="button" data-sample="boulevard">Boulevard</button>
+      <button type="button" data-sample="pier">Pier</button>
+    </div>
+
+    <label>Title <input id="title" type="text" maxlength="40" value="Sunset Heist"></label>
+    <label>Subtitle <input id="subtitle" type="text" maxlength="60" value="a Solmar Bay story"></label>
+    <label>Badge <input id="badge" type="text" maxlength="20" value="Solmar Bay"></label>
+    <label>Heat <input id="heat" type="range" min="0" max="5" step="1" value="4"></label>
+
+    <fieldset>
+      <legend>Layout</legend>
+      <div id="layouts" class="picker"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Colour grade</legend>
+      <div id="grades" class="picker"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Export size</legend>
+      <div id="sizes" class="picker"></div>
+    </fieldset>
+
+    <div class="row">
+      <button id="fill-one" type="button">One photo, all panels</button>
+      <button id="fill-many" type="button">Spread photos</button>
+    </div>
+    <div class="row">
+      <button id="undo" type="button" disabled>Undo</button>
+      <button id="redo" type="button" disabled>Redo</button>
+    </div>
+    <button id="export" type="button" class="primary">Export PNG</button>
+    <p id="status" role="status"></p>
+
+    <section aria-label="Panels">
+      <h2>Panels — drag the cover to move a photo, scroll to zoom</h2>
+      <div id="panels"></div>
+    </section>
+  </section>
+  <section class="preview" aria-label="Live preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
